@@ -1,0 +1,10 @@
+# Bolt.new Export Configuration
+# Specify patterns to EXCLUDE from exports
+# NOTE: dist/ is intentionally NOT listed here - it MUST be included
+
+node_modules/
+.env
+.env.local
+*.log
+.DS_Store
+.git/

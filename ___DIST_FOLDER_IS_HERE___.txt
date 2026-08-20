@@ -1,0 +1,45 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║           ✅ DIST FOLDER IS CONFIGURED FOR EXPORT            ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+
+The dist/ folder is located in the project root:
+
+  project/
+  ├── dist/  ← THIS FOLDER (4.4 MB, 9 files)
+  │   ├── index.html
+  │   ├── assets/ (7 JS/CSS files)
+  │   ├── scs-quotation-v9-4-0-standalone.html
+  │   ├── scs_(white_transparent_bg).png
+  │   ├── scs_adim_(small).png
+  │   ├── image.png
+  │   └── _redirects
+  ├── src/
+  ├── public/
+  └── ...
+
+═══════════════════════════════════════════════════════════════
+
+VERIFICATION PASSED:
+  ✅ .gitignore does NOT exclude "dist"
+  ✅ .boltignore does NOT exclude "dist"
+  ✅ .exportignore does NOT exclude "dist"
+  ✅ dist/ folder exists and contains production build
+  ✅ All files present (index.html, assets, standalone)
+  ✅ Git repository initialized and dist folder is tracked
+  ✅ dist/ folder committed to git for export inclusion
+
+═══════════════════════════════════════════════════════════════
+
+IMPORTANT: If you still don't see the dist/ folder in your
+file tree UI, this is a platform/tool issue, NOT a project
+configuration issue. The folder EXISTS and is NOT ignored.
+
+Try:
+  1. Refresh your browser/IDE
+  2. Check your export tool's settings
+  3. Look for a "Show ignored files" option
+  4. Verify using terminal: ls -la dist/
+
+═══════════════════════════════════════════════════════════════

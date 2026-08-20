@@ -1,0 +1,1079 @@
+:root {
+  --primary: #024A31;
+  --primary-700: #003A27;
+  --accent: #9FB976;
+  --mid: #3B6152;
+  --primary-50: #EFF5F1;
+  --light: #F5F8F6;
+  --border: #e5e7eb;
+  --text: #0f172a;
+  --muted: #556b63;
+  --card: #ffffff;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 1px 1px rgba(0,0,0,.04);
+}
+
+/* Smooth transitions for better UX */
+button,
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea,
+.scs-shadow {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slide-in animation for side panels */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Disable transitions for text inputs during typing */
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.scs-primary {
+  color: var(--primary);
+}
+
+.scs-primary-bg {
+  background-color: var(--primary);
+}
+
+.scs-accent {
+  color: var(--accent);
+}
+
+.scs-accent-bg {
+  background-color: var(--accent);
+}
+
+.scs-mid {
+  color: var(--mid);
+}
+
+.scs-light-bg {
+  background-color: var(--light);
+}
+
+.scs-shadow {
+  box-shadow: var(--shadow);
+}
+
+.negative-value {
+  color: #b91c1c !important;
+  font-weight: 700 !important;
+}
+
+.tile-emphasized .tile-value {
+  color: #16a34a !important;
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+}
+
+.underline-value .tile-value {
+  text-decoration: underline !important;
+}
+
+  /* Force textarea auto-resize */
+  .line-item-description {
+    resize: none !important;
+    overflow: hidden !important;
+    min-height: 2.5rem !important;
+    box-sizing: border-box !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+  }
+  
+  /* Ensure table cells expand with content */
+  .line-items-table td {
+    vertical-align: top !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+  
+  /* Mobile and Tablet Responsive Improvements */
+  @media (max-width: 1024px) {
+    .container {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    /* Make cards stack better on tablets */
+    .grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-4 {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3 {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Improve table scrolling on tablets */
+    .overflow-x-auto {
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+
+    /* Better button sizing for touch */
+    button {
+      min-height: 44px !important;
+      min-width: 44px !important;
+    }
+
+    /* Improve input field sizing */
+    input, select, textarea {
+      min-height: 44px !important;
+      font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+
+    /* Improve header button layout on tablets */
+    header .flex.items-center.gap-2 {
+      flex-wrap: wrap;
+    }
+
+    header button {
+      font-size: 13px !important;
+      padding: 8px 12px !important;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    /* Stack everything on mobile */
+    .grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-4,
+    .grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-3,
+    .grid-cols-1.md\\:grid-cols-2 {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Improve header on mobile */
+    .flex-wrap {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 0.5rem !important;
+    }
+
+    /* Better spacing on mobile */
+    .space-y-6 > * + * {
+      margin-top: 1.5rem !important;
+    }
+
+    /* Improve modal sizing on mobile */
+    .fixed.inset-0 .bg-white {
+      margin: 0.5rem !important;
+      max-height: calc(100vh - 1rem) !important;
+    }
+
+    /* Stack header buttons vertically on mobile */
+    header .flex.items-center.gap-2 {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+      width: 100%;
+    }
+
+    header button {
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* Adjust header padding */
+    header {
+      padding: 1rem !important;
+    }
+
+    /* Make logo smaller on mobile */
+    header img {
+      height: 2.5rem !important;
+    }
+
+    /* Improve toast notifications on mobile */
+    .fixed.top-4.right-4 {
+      top: 0.5rem !important;
+      right: 0.5rem !important;
+      left: 0.5rem !important;
+    }
+
+    /* Better card padding on mobile */
+    .scs-shadow {
+      padding: 1rem !important;
+    }
+  }
+  
+  /* Tablet-specific improvements */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    /* Better table layout for tablets */
+    .print-table th,
+    .print-table td {
+      padding: 8px 6px !important;
+      font-size: 12px !important;
+    }
+    
+    /* Improve card layouts */
+    .scs-shadow {
+      box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06) !important;
+    }
+    
+    /* Better touch targets */
+    .hover\\:bg-gray-50:hover {
+      background-color: #f9fafb !important;
+    }
+  }
+  
+/* Ensure consistent decimal formatting in inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+  /* Improve focus states for keyboard navigation */
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: 2px solid #10b981 !important;
+    outline-offset: 2px !important;
+  }
+  
+  /* Toast notification animations */
+  @keyframes slide-in {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+  }
+
+  /* Enhanced Tooltip System */
+  [title] {
+    position: relative;
+  }
+
+  /* Help cursor only for interactive elements with tooltips */
+  button[title],
+  input[title],
+  select[title],
+  textarea[title],
+  a[title] {
+    cursor: help;
+  }
+  
+  /* JavaScript-controlled tooltip positioning */
+  .tooltip-auto-top[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1f2937;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 300px;
+    white-space: normal;
+    word-wrap: break-word;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    pointer-events: none;
+    opacity: 0;
+    animation: tooltipFadeIn 0.2s ease-in-out forwards;
+  }
+  
+  .tooltip-auto-top[title]:hover::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 3px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #1f2937;
+    z-index: 1001;
+    pointer-events: none;
+    opacity: 0;
+    animation: tooltipFadeIn 0.2s ease-in-out forwards;
+  }
+  
+  .tooltip-auto-bottom[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1f2937;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 300px;
+    white-space: normal;
+    word-wrap: break-word;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    pointer-events: none;
+    opacity: 0;
+    animation: tooltipFadeIn 0.2s ease-in-out forwards;
+  }
+  
+  .tooltip-auto-bottom[title]:hover::before {
+    content: '';
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-bottom-color: #1f2937;
+    z-index: 1001;
+    pointer-events: none;
+    opacity: 0;
+    animation: tooltipFadeIn 0.2s ease-in-out forwards;
+  }
+  
+  /* Custom tooltip styling for better visibility - only for elements without auto-positioning */
+  [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::after {
+    content: attr(title);
+    position: absolute;
+   top: calc(100% + 8px);
+   left: 50%;
+   transform: translateX(-50%);
+    background-color: #1f2937;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.4;
+    max-width: 300px;
+    white-space: normal;
+    word-wrap: break-word;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    pointer-events: none;
+    opacity: 0;
+    animation: tooltipFadeIn 0.2s ease-in-out forwards;
+  }
+
+  [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::before {
+    content: '';
+    position: absolute;
+   top: calc(100% + 3px);
+    left: 50%;
+   transform: translateX(-50%);
+    border: 5px solid transparent;
+   border-bottom-color: #1f2937;
+    z-index: 1001;
+    pointer-events: none;
+    opacity: 0;
+    animation: tooltipFadeIn 0.2s ease-in-out forwards;
+  }
+  
+  /* Header elements - always show below (only for elements without auto-positioning) */
+  header [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::after,
+  .sticky [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::after {
+    top: calc(100% + 8px);
+    bottom: auto;
+  }
+
+  header [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::before,
+  .sticky [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::before {
+    top: calc(100% + 3px);
+    bottom: auto;
+    border-top-color: transparent;
+    border-bottom-color: #1f2937;
+  }
+
+  /* Section headers and top elements - show below (only for elements without auto-positioning) */
+  .bg-gradient-to-r [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::after,
+  h2 [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::after,
+  h3 [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::after {
+    top: calc(100% + 8px);
+    bottom: auto;
+  }
+
+  .bg-gradient-to-r [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::before,
+  h2 [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::before,
+  h3 [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::before {
+    top: calc(100% + 3px);
+    bottom: auto;
+    border-top-color: transparent;
+    border-bottom-color: #1f2937;
+  }
+
+  /* Smart positioning for tooltips near viewport edges */
+  [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::after {
+    /* Keep tooltip centered and within viewport */
+    max-width: min(300px, calc(100vw - 16px));
+  }
+  
+  /* Right edge positioning */
+  .tooltip-right[title]:hover::after {
+    left: auto;
+    right: 0;
+    transform: none;
+  }
+  
+  .tooltip-right[title]:hover::before {
+    left: auto;
+    right: 20px;
+    transform: none;
+  }
+  
+  /* Left edge positioning */
+  .tooltip-left[title]:hover::after {
+    left: 0;
+    transform: none;
+  }
+  
+  .tooltip-left[title]:hover::before {
+    left: 20px;
+    transform: none;
+  }
+  
+  /* Force bottom positioning for specific elements (disabled - auto-positioning handles this now) */
+  /* Removed to prevent duplicate tooltips - the automatic positioning system handles all cases */
+  
+  @keyframes tooltipFadeIn {
+    from {
+      opacity: 0;
+     transform: translateY(5px);
+    }
+    to {
+      opacity: 1;
+     transform: translateY(0);
+    }
+  }
+  
+  /* Input fields always show below (only for elements without auto-positioning) */
+  input[title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::after,
+  select[title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::after,
+  textarea[title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::after {
+    top: calc(100% + 8px);
+    bottom: auto;
+  }
+
+  input[title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::before,
+  select[title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::before,
+  textarea[title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::before {
+    top: calc(100% + 3px);
+    bottom: auto;
+    border-top-color: transparent;
+    border-bottom-color: #1f2937;
+    transform: none;
+  }
+  
+  /* Mobile responsive tooltips */
+  @media (max-width: 768px) {
+    [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::after {
+      font-size: 11px;
+      padding: 6px 10px;
+      max-width: 250px;
+     left: 8px !important;
+     right: 8px !important;
+     transform: none !important;
+     width: calc(100vw - 32px);
+     max-width: calc(100vw - 32px);
+   }
+
+    /* Fixed column widths for consistent alignment */
+    .print-table {
+      table-layout: fixed !important;
+      width: 100% !important;
+    }
+
+    .print-table th:nth-child(1),
+    .print-table td:nth-child(1) {
+      width: 40% !important;
+      min-width: 300px !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+      vertical-align: top !important;
+    }
+
+    .print-table th:nth-child(2),
+    .print-table td:nth-child(2) {
+      width: 8% !important;
+      text-align: center !important;
+    }
+
+    .print-table th:nth-child(3),
+    .print-table td:nth-child(3) {
+      width: 8% !important;
+      text-align: center !important;
+    }
+
+    .print-table th:nth-child(4),
+    .print-table td:nth-child(4) {
+      width: 15% !important;
+    }
+
+    .print-table th:nth-child(5),
+    .print-table td:nth-child(5) {
+      width: 8% !important;
+      text-align: center !important;
+    }
+
+    .print-table th:nth-child(6),
+    .print-table td:nth-child(6) {
+      width: 10% !important;
+      text-align: right !important;
+    }
+
+    .print-table th:nth-child(7),
+    .print-table td:nth-child(7) {
+      width: 10% !important;
+      text-align: right !important;
+    }
+
+    .print-table th:nth-child(8),
+    .print-table td:nth-child(8) {
+      width: 12% !important;
+      text-align: right !important;
+    }
+
+    /* Ensure totals summary table has consistent alignment */
+    .print-totals-summary {
+      table-layout: fixed !important;
+      width: 100% !important;
+    }
+
+    .print-totals-summary th:nth-child(1),
+    .print-totals-summary td:nth-child(1) {
+      width: 35% !important;
+    }
+
+    .print-totals-summary th:nth-child(2),
+    .print-totals-summary td:nth-child(2) {
+      width: 13% !important;
+      text-align: center !important;
+    }
+
+    .print-totals-summary th:nth-child(3),
+    .print-totals-summary td:nth-child(3) {
+      width: 13% !important;
+      text-align: right !important;
+    }
+
+    .print-totals-summary th:nth-child(4),
+    .print-totals-summary td:nth-child(4) {
+      width: 13% !important;
+      text-align: right !important;
+    }
+
+    .print-totals-summary th:nth-child(5),
+    .print-totals-summary td:nth-child(5) {
+      width: 26% !important;
+      text-align: right !important;
+    }
+
+   [title]:not(.tooltip-auto-top):not(.tooltip-auto-bottom):hover::before {
+     left: 20px !important;
+     transform: none !important;
+    }
+     
+     .tooltip-auto-top[title]:hover::after,
+     .tooltip-auto-bottom[title]:hover::after {
+       left: 8px !important;
+       right: 8px !important;
+       transform: none !important;
+       width: calc(100vw - 32px);
+       max-width: calc(100vw - 32px);
+     }
+     
+     .tooltip-auto-top[title]:hover::before,
+     .tooltip-auto-bottom[title]:hover::before {
+       left: 20px !important;
+       transform: none !important;
+     }
+  }
+  
+  /* Tooltip helper class for better positioning */
+  .tooltip-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Better scrollbar styling */
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  #print-full {
+    display: block !important;
+  }
+  
+  #print-summary {
+    display: block !important;
+  }
+  
+  body {
+    background: white !important;
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .scs-shadow {
+    box-shadow: none !important;
+  }
+  
+  .print-page-break {
+    page-break-before: always !important;
+  }
+  
+  .print-avoid-break {
+    page-break-inside: avoid !important;
+  }
+  
+  .print-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: white !important;
+    border-bottom: 2px solid #024A31 !important;
+    padding: 10px 20px !important;
+    z-index: 1000 !important;
+  }
+  
+  .print-content {
+    margin-top: 80px !important;
+    padding: 0 20px !important;
+  }
+  
+  .print-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .print-table th,
+  .print-table td {
+    border: 1px solid #ccc !important;
+    padding: 4px 6px !important;
+    font-size: 10px !important;
+    text-align: left !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    vertical-align: top !important;
+  }
+  
+  .print-table th {
+    background-color: #f5f5f5 !important;
+    font-weight: bold !important;
+  }
+  
+  .print-section-header {
+    background-color: #024A31 !important;
+    color: white !important;
+    font-weight: bold !important;
+    padding: 8px !important;
+    margin: 15px 0 5px 0 !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+  
+  .print-totals-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    margin: 20px 0 !important;
+  }
+  
+  .print-total-item {
+    border: 1px solid #ccc !important;
+    padding: 8px !important;
+    background: #f9f9f9 !important;
+    text-align: center !important;
+  }
+  
+  .print-total-label {
+    font-size: 9px !important;
+    color: #666 !important;
+    margin-bottom: 2px !important;
+    text-align: center !important;
+  }
+  
+  .print-total-value {
+    font-size: 12px !important;
+    font-weight: bold !important;
+    color: #000 !important;
+    text-align: center !important;
+  }
+  
+  .print-grand-total {
+    background: #024A31 !important;
+    color: white !important;
+    font-size: 14px !important;
+    text-align: center !important;
+    padding: 12px !important;
+    margin: 20px 0 !important;
+  }
+  
+  .print-footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    font-size: 8px !important;
+    color: #666 !important;
+    padding: 10px !important;
+    border-top: 1px solid #ccc !important;
+  }
+  
+  /* Hide interactive elements */
+  input, select, textarea, button {
+    border: none !important;
+    background: transparent !important;
+    font-size: inherit !important;
+    color: inherit !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    outline: none !important;
+  }
+
+  /* Template-specific styles */
+  body[data-report-template="client"] .print-section-header {
+    background-color: #1e40af !important;
+    color: white !important;
+  }
+
+  body[data-report-template="internal"] .print-section-header {
+    background-color: #dc2626 !important;
+    color: white !important;
+  }
+
+  body[data-report-template="summary"] .print-section-header {
+    background-color: #059669 !important;
+    color: white !important;
+  }
+
+  body[data-report-template="comparison"] .print-section-header {
+    background-color: #7c3aed !important;
+    color: white !important;
+  }
+
+  body[data-report-template="client"] .print-grand-total {
+    background: #1e40af !important;
+    color: white !important;
+  }
+
+  body[data-report-template="internal"] .print-grand-total {
+    background: #dc2626 !important;
+    color: white !important;
+  }
+
+  body[data-report-template="summary"] .print-grand-total {
+    background: #059669 !important;
+    color: white !important;
+  }
+
+  body[data-report-template="comparison"] .print-grand-total {
+    background: #7c3aed !important;
+    color: white !important;
+  }
+
+  /* Report template specific print styles */
+  @media print {
+    /* Auto-expanding text areas for descriptions */
+    .print-table td textarea,
+    .print-table td input[type="text"] {
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+      resize: none !important;
+      border: none !important;
+      background: transparent !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      font-size: inherit !important;
+      line-height: inherit !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+    }
+    
+    /* Ensure tables maintain exact column alignment */
+    .report-template table {
+      table-layout: fixed !important;
+      width: 100% !important;
+    }
+    
+    .report-template td,
+    .report-template th {
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+      vertical-align: top !important;
+      height: auto !important;
+      min-height: auto !important;
+    }
+    
+    .report-template {
+      font-size: 11px !important;
+      line-height: 1.3 !important;
+    }
+    
+    .report-template table {
+      width: 100% !important;
+      border-collapse: collapse !important;
+      margin-bottom: 15px !important;
+    }
+    
+    .report-template th,
+    .report-template td {
+      border: 2px solid #024A31 !important;
+      padding: 3px 5px !important;
+      font-size: 10px !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+      vertical-align: top !important;
+    }
+    
+    .report-template th {
+      background-color: #EFF5F1 !important;
+      border: 2px solid #024A31 !important;
+      font-weight: bold !important;
+      color: #024A31 !important;
+    }
+    
+    .report-template .section-header {
+      background-color: #024A31 !important;
+      color: white !important;
+      font-weight: bold !important;
+      padding: 8px !important;
+      margin: 10px 0 5px 0 !important;
+      border: 2px solid #024A31 !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+      height: auto !important;
+      min-height: auto !important;
+    }
+    
+    /* Section totals alignment */
+    .report-template .section-totals-row {
+      background-color: #EFF5F1 !important;
+      border: 2px solid #024A31 !important;
+      font-weight: bold !important;
+      color: #024A31 !important;
+      font-size: 10px !important;
+    }
+    
+    /* Overall totals alignment */
+    .report-template .overall-totals-row {
+      background-color: #EFF5F1 !important;
+      border: 2px solid #024A31 !important;
+      font-weight: bold !important;
+      color: #024A31 !important;
+      font-size: 10px !important;
+    }
+    
+    /* Grand total styling */
+    .report-template .grand-total {
+      background-color: #024A31 !important;
+      color: white !important;
+      font-size: 16px !important;
+      font-weight: bold !important;
+      text-align: center !important;
+      padding: 12px !important;
+      margin: 20px 0 !important;
+      border: 3px solid #024A31 !important;
+    }
+    
+    /* Green shading for totals */
+    .print-totals-summary {
+      background-color: #EFF5F1 !important;
+      border: 2px solid #024A31 !important;
+      padding: 8px !important;
+      margin: 10px 0 !important;
+    }
+    
+    .print-totals-summary th,
+    .print-totals-summary td {
+      background-color: #EFF5F1 !important;
+      border: 1px solid #024A31 !important;
+      color: #024A31 !important;
+      font-weight: bold !important;
+      font-size: 10px !important;
+      padding: 3px 5px !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+      vertical-align: top !important;
+    }
+    
+    /* Ensure all table cells have consistent sizing */
+    .print-table th,
+    .print-table td,
+    .print-totals-summary th,
+    .print-totals-summary td {
+      font-size: 10px !important;
+      padding: 3px 5px !important;
+      line-height: 1.2 !important;
+      vertical-align: middle !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
+      white-space: normal !important;
+      height: auto !important;
+      min-height: auto !important;
+    }
+    
+    /* Force consistent column widths across all tables */
+    .print-table,
+    .print-totals-summary {
+      width: 100% !important;
+      table-layout: auto !important;
+      border-collapse: collapse !important;
+    }
+    
+    /* Flexible column widths that expand with content */
+    .print-table th:nth-child(1), .print-table td:nth-child(1) {
+      min-width: 200px !important;
+      max-width: none !important;
+    }
+    
+    .print-table th:nth-child(2), .print-table td:nth-child(2),
+    .print-table th:nth-child(3), .print-table td:nth-child(3),
+    .print-table th:nth-child(5), .print-table td:nth-child(5) {
+      min-width: 60px !important;
+      text-align: center !important;
+    }
+    
+    .print-table th:nth-child(4), .print-table td:nth-child(4) {
+      min-width: 120px !important;
+    }
+    
+    .print-table th:nth-child(6), .print-table td:nth-child(6),
+    .print-table th:nth-child(7), .print-table td:nth-child(7),
+    .print-table th:nth-child(8), .print-table td:nth-child(8) {
+      min-width: 80px !important;
+      text-align: right !important;
+    }
+    
+    /* Description column gets more space */
+    .print-table th:nth-child(1), .print-table td:nth-child(1) {
+      width: auto !important;
+      min-width: 250px !important;
+    }
+  }
+}
+
+/* Compact view styles - hide less critical columns */
+.line-items-table.compact-view th:nth-child(6),
+.line-items-table.compact-view td:nth-child(6),
+.line-items-table.compact-view th:nth-child(7),
+.line-items-table.compact-view td:nth-child(7) {
+  display: none;
+}
+
+.line-items-table.compact-view {
+  font-size: 0.875rem;
+}
+
+.line-items-table.compact-view td,
+.line-items-table.compact-view th {
+  padding: 0.25rem 0.5rem !important;
+}
+
+/* Read-only mode - disable editing but keep visual appearance normal */
+.read-only-mode input:not(.comment-input),
+.read-only-mode textarea:not(.comment-input),
+.read-only-mode select {
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+}
+
+.read-only-mode button:not(.print-button):not([class*="close"]):not([class*="modal"]):not([class*="tab"]):not(.nav-button):not(.comment-button):not(.browse-button):not(.quotation-action) {
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+}
+
+.read-only-mode .lucide-trash-2,
+.read-only-mode .lucide-plus,
+.read-only-mode .lucide-edit,
+.read-only-mode .lucide-copy,
+.read-only-mode .lucide-move {
+  display: none !important;
+}
+
+/* Maintenance Proposal Report Print Styles */
+@media print {
+  .maintenance-report {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+
+  .maintenance-report table {
+    page-break-inside: auto !important;
+  }
+
+  .maintenance-report tr {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+  }
+
+  .maintenance-report thead {
+    display: table-header-group !important;
+  }
+
+  .maintenance-report tfoot {
+    display: table-footer-group !important;
+  }
+}
